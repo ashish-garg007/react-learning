@@ -1,3 +1,3 @@
-# Prequiste
+# Prerequisite
 
 ## run command `~/mongodb/bin/mongo`
