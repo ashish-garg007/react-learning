@@ -1,10 +1,16 @@
 const express = require('express');
+const app = express();
 const router = express.Router();
+
 const bodyParser = require('body-parser');
+
+
 const User = require('../schema/User');
 
 router.use(bodyParser.urlencoded({extended: true}));
 router.use(bodyParser.json());
+
+
 
 router.post('/', (req, res) => {
     console.log('in post method');

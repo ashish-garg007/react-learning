@@ -1,3 +1,3 @@
 # Prerequisite
 
-## run command `~/mongodb/bin/mongo`
+## run command `~/mongodb/bin/mongod`
