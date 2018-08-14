@@ -9,7 +9,6 @@ app.use(cors());
 const port = process.env.PORT || 3001;
 
 
-
 const UserController = require('./src/controller/UserController');
 const AuthenticationController = require('./src/controller/Authentication');
 

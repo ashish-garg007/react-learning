@@ -20,10 +20,10 @@ router.post('/authenticate',(req, res) =>{
             return res.status(500).send('there is some problem');
         }
         if(!user){
-            return res.json({success: false, message: 'Authentication fialied. User not found'});
+            return res.json({success: false, message: 'Authentication failed. User not found'});
         }else if(user){
             if(user.password !== req.body.password){
-                res.json({success: flase, message: 'Authentication fialed. Wrong Password'});
+                res.json({success: false, message: 'Authentication failed. Wrong Password'});
             }else{
                 const payload = {
                     admin: true

@@ -2,12 +2,15 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {addToken,addProfile} from '../action/index';
 import '../style/login.css';
+import {Link} from 'react-router-dom';
 
 class Login extends React.Component{
     state ={
         username:'',
-        password:''
+        password:'',
+        errorMessage:''
     }
+    
 
 
     handleChange = event => {
@@ -18,7 +21,7 @@ class Login extends React.Component{
 
     handleSubmit(event) {
         event.preventDefault();
-        fetch('http://localhost:3001/authenticate',{
+        fetch(process.env.REACT_APP_API_URI+'/authenticate',{
               method:'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -29,33 +32,37 @@ class Login extends React.Component{
               })
           })
           .then(result => {
-            
             return result.json()
           })
           .then(data =>{
-            this.props.addToken(data.token);
-            this.props.addProfile(data.profile);
+              console.log(data);
+              if(data.success){
+                this.props.addToken(data.token);
+                this.props.addProfile(data.profile);
+                this.props.history.push("/");
+              }else{
+                this.setState({errorMessage:'Username or Password is Incorrect'});
+              }
           })
       }
 
     render(){
         const {username, password} = this.state;
         return(
+            <div><Link to='/signup'>SignUp</Link>
         <form onSubmit={this.handleSubmit.bind(this)}>
-        <div className="container">
-            <label>Login</label><br></br>
-            <label>Username:
+        <div className="container loginBackground">
+            <div className="imgcontainer"><label>Login</label></div>
+            <span className="error">{this.state.errorMessage}</span><br></br>
             <input type="text" value={username} id="username" placeholder="username" onChange={this.handleChange}  required/>
-            </label>
-            <label>Password:
             <input type="password" value={password} id="password" placeholder="password" onChange={this.handleChange} required/>
-            </label>
             <button type="submit">Login</button>
         </div>
         <div className="container" style={{backgroundColor:'#f1f1f1'}}>
             <span className="psw">Forgot <a href="#">password?</a></span>
         </div>
         </form>
+        </div>
     )
 }
 }
