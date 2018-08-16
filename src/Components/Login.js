@@ -27,7 +27,7 @@ class Login extends React.Component{
                 'Content-Type': 'application/json',
               },
               body: JSON.stringify({
-                name: this.state.username,
+                email: this.state.username,
                 password: this.state.password,
               })
           })
@@ -35,7 +35,6 @@ class Login extends React.Component{
             return result.json()
           })
           .then(data =>{
-              console.log(data);
               if(data.success){
                 this.props.addToken(data.token);
                 this.props.addProfile(data.profile);
