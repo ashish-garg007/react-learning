@@ -45,7 +45,6 @@ router.post('/authenticate',(req, res) =>{
   });
 
   router.post('/signup', (req, res) => {
-    console.log('in post method');
     User.create({
         name: req.body.name,
         email: req.body.email,
