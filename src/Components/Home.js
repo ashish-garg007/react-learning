@@ -9,7 +9,7 @@ const mapStateToProps = state => {
 const Home = () => {
   return (
     <div>
-      <h1>Welcome to react router test</h1>
+      <h1>Welcome to react router test new</h1>
     </div>
   );
 };
