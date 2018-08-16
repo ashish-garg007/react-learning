@@ -48,21 +48,21 @@ class Signup extends React.Component{
                 <p>Please fill in this form to create an account.</p>
                 <hr/>
 
-                 <label for="name"><b>Name</b></label>
+                 <label ><b>Name</b></label>
                 <input type="text" value={name} placeholder="Enter Name" id="name" name="name" onChange={this.handleChange} required/>
 
-                <label for="email"><b>Email</b></label>
+                <label ><b>Email</b></label>
                 <input type="text" value={email} placeholder="Enter Email" id="email" name="email" onChange={this.handleChange} required/>
 
-                <label for="psw"><b>Password</b></label>
+                <label ><b>Password</b></label>
                 <input type="password" value={password} placeholder="Enter Password" id="password" onChange={this.handleChange} name="psw" required/>
 
-                <label for="psw-repeat"><b>Repeat Password</b></label>
+                <label ><b>Repeat Password</b></label>
                 <input type="password" value={password} placeholder="Repeat Password" name="psw-repeat" required/>
 
-                <label>
+                {/* <label>
                 <input type="checkbox" checked="checked" name="remember" style={{marginBottom:'15px'}}/> Remember me
-                </label>
+                </label> */}
 
                 <p>By creating an account you agree to our <a href="#" style={{color:'dodgerblue'}}>Terms & Privacy</a>.</p>
 

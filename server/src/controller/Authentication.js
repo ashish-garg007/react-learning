@@ -51,7 +51,7 @@ router.post('/authenticate',(req, res) =>{
         password: req.body.password
     }, (err, user) =>{
         if(err) return res.status(500).send('There is some problem in user creation');
-        res.status(200).send(user);
+        res.status(200).send({...user,success: true,message:'user data'});
     });
 });
 
